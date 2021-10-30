@@ -2,8 +2,8 @@
 // //открываем участников и 
 // document.querySelector("#wc-footer > div > div.footer__btns-container > div:nth-child(2) > button").click()
 // document.querySelector("#wc-container-left > div.meeting-info-container.meeting-info-container--left-side > button > i").click()
-// ////////////////но сначала режим телефона/////////
-// /////
+// // ////////////////но сначала режим телефона/////////
+// // /////
 
 // //селектор по 
 // var namesToChange = document.querySelectorAll("li[role='application']")
@@ -19,6 +19,9 @@
 // namesToChange[i].innerText
 
 
+//открываем участников и 
+document.querySelector("#wc-footer > div > div.footer__btns-container > div:nth-child(2) > button").click()
+document.querySelector("#wc-container-left > div.meeting-info-container.meeting-info-container--left-side > button > i").click()
 
 
 
@@ -57,3 +60,11 @@ names2.forEach((x, i) => { return namesArr2.push(names2[i].textContent) })
 namesArr2.sort()
 
 namesToChange.forEach((t, i) => {namesToChange[i].querySelector(".participants-item__display-name").textContent = namesArr2[i]})
+
+document.querySelectorAll(".participants-item__name-label").forEach((x,i) => {document.querySelectorAll(".participants-item__name-label")[i].remove()})
+sleep(2000)
+
+
+for (let index = 0; index <300; index++) {
+    document.querySelectorAll(".participants-item__name-label")[index].remove()
+}
