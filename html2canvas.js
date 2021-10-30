@@ -37,3 +37,13 @@ html2canvas(document.querySelector("*")).then(canvas => {
 // Или если в новой вкладе то так:
 
 // window.open(canvas.toDataURL("image/png"), "_blank");
+
+var element = document.createElement("script", "src='https://html2canvas.hertzen.com/dist/html2canvas.js'" );
+
+
+
+document.createElement()
+
+
+
+var element = document.createElement("script", "src='https://html2canvas.hertzen.com/dist/html2canvas.js'" );
