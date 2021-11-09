@@ -63,7 +63,7 @@ function similar_text(first, second, percent) { // eslint-disable-line camelcase
 var test_data = []
 var result = prompt("dd")
 //   result.replace(/[\n\r+�]+/g, '');
-test_data = result.replace(/[\n.)(+\d]+/g, '');
+test_data = result.replace(/[\n+\d]+/g, '');
 test_data = test_data.split(",")
 
 var test_data2 = []
