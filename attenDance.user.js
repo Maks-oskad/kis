@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://smd.mos.ru/groups/2032230/attendance
+// @icon         https://www.google.com/s2/favicons?domain=mos.ru
+// @grant       unsafeWindow
+// ==/UserScript==
+
 
 
 document.querySelector("#container > div > main > div > header").innerHTML+=
@@ -7,8 +18,8 @@ document.querySelector("#container > div > main > div > header").innerHTML+=
 
 
 function attenDance(params) {
-    
-    
+
+
 var lines, colunns, headerQuery;
 var tablica = ["ФИО",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
@@ -16,7 +27,7 @@ var tablica = ["ФИО",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 lines = document.querySelectorAll("#container > div > main > div > div > section > div > div > div.styled__StyledCardContent-sc-1ydsk2u-4.kMuiUc > div > div > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > div.ant-spin-nested-loading > div > div > div > div > div.styled__StyledCardContent-sc-123jlgd-3.eEOoJL > div.ant-table-wrapper.sc-hEsumM.sc-bYwvMP.bBBBXy > div > div > div > div > div.ant-table-scroll > div > table > tbody > tr:nth-child(n)")
 
 // (function (params) {console.log(":EN")
-    
+
 // })()
 // ??colunns lines[0].children[1].children[1].classList.contains("anticon-plus")
 for (var i_line=0;i_line<lines.length; i_line++) {
@@ -43,3 +54,4 @@ for (var i_line=0;i_line<lines.length; i_line++) {
         console.log(typeof(index))
     }
 }
+unsafeWindow.attenDance =attenDance;
