@@ -21,7 +21,7 @@ function attenDance(params) {
 
 
 var lines, colunns, headerQuery;
-var tablica = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+var tablica = ["ФИО",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 //lines start`s at 0
 lines = document.querySelectorAll("#container > div > main > div > div > section > div > div > div.styled__StyledCardContent-sc-1ydsk2u-4.kMuiUc > div > div > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > div.ant-spin-nested-loading > div > div > div > div > div.styled__StyledCardContent-sc-123jlgd-3.eEOoJL > div.ant-table-wrapper.sc-hEsumM.sc-bYwvMP.bBBBXy > div > div > div > div > div.ant-table-scroll > div > table > tbody > tr:nth-child(n)")
@@ -49,24 +49,9 @@ for (var i_line=0;i_line<lines.length; i_line++) {
 
 
 
-    for (let index = 1; index <= 30; index++) {
-
-try {        headerQuery[index].innerHTML += `<h1 style="color:#10b072; background-color: #d5d9db">${tablica[index]}</h1>`
+    for (let index = 0; index < 30; index++) {
+        headerQuery[index].innerHTML += `<h1 style="color:#10b072; background-color: #d5d9db">${tablica[index]}</h1>`
         console.log(typeof(index))
-
-        tablica[0] += parseInt(tablica[index])
-    
-} catch (error) {
-    
-
-
-
-
-
-    
-        document.querySelector("#container > div > main > div > div > section > div > div > div.styled__StyledCardContent-sc-1ydsk2u-4.kMuiUc > div > div > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > div.ant-spin-nested-loading > div > div > div > div > div.styled__StyledCardContent-sc-123jlgd-3.eEOoJL > div.ant-table-wrapper.sc-hEsumM.sc-bYwvMP.bBBBXy > div > div > div > div > div.ant-table-fixed-left > div > div > table > thead > tr > th").innerHTML += `<h1 style="color:#10b072; background-color: #d5d9db">ВСЕГО: ${tablica[0]}</h1>`
-    
-        break;
-    }}
+    }
 }
 unsafeWindow.attenDance =attenDance;
