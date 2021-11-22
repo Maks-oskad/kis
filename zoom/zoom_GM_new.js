@@ -51,15 +51,11 @@
 
       if(document.querySelector(".footer-button__button ").getAttribute("aria-label")=='close the participants list pane'){
         document.querySelector(".footer-button__button ").click()
-      }
+      }},2000);
 
 
 
 
-
-    }            
-    
-    , 2000);
 
 
     var saveData = (function () {
@@ -78,9 +74,9 @@
   
   unsafeWindow.saveData =saveData;
 
-saveData(namesArr.toString(), "file.txt");
 
-saveData("this data will be written in the file", `${new Date().toLocaleString().slice(0,17)}.txt`);
+
+saveData(namesArr, `${new Date().toLocaleString().slice(0,17)}.txt`);
 // var list = document.getElementById('mylist');
 
 // var items = list.childNodes;
