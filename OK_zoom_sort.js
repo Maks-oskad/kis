@@ -14,13 +14,9 @@ textarea.select();
 document.execCommand('copy')
 
 
-
-
 names.forEach((x, i) => { return namesArr.push(names[i].innerText) })
 
 var namesToChange = document.querySelectorAll("li[role='application']")
-
-
 
 ///////////////////
 
