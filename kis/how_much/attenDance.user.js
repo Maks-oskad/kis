@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         AttenDance
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
@@ -34,8 +34,9 @@ for (var i_line=0;i_line<lines.length; i_line++) {
     for(var i_child=1; i_child < lines[i_line].childElementCount; i_child++ )
     {
         try {
-            if (lines[i_line].children[i_child].children[1].classList.contains("anticon-plus")) {
+            if (lines[i_line].children[i_child].querySelector(".anticon-plus")) {
                 console.log("+", i_line, i_child,tablica[i_child]);
+                lines[i_line].children[i_child].querySelector(".anticon-plus").style.background = "green"
                 tablica[i_child]+=1;
             }
         }

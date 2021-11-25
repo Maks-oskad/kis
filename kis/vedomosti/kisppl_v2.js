@@ -13,6 +13,16 @@
 
 document.querySelector("#container > div > main > div > header").innerHTML+=
 `<button style="color:white; background-color:#10b072" onclick = "kisppl()">kisppl</button>`
+document.querySelector("#container > div > main > div > header").innerHTML+=
+`<button style="color:white; background-color:#100072" recheck = "отмена V()">kisppl</button>`
+
+
+function recheck(){
+    var recheck = document.querySelectorAll(".ant-checkbox-input")
+
+    recheck.forEach((x,i)=>{if(recheck[i].checked){recheck[i].click()}}, "что?") 
+    }
+
 
 function kisppl(params) {
 
@@ -123,14 +133,14 @@ for (di = 0; di < test_data.length; di++) { //k_line.length
     }
 }
 alert(test_data)
-test_data
+test_data.sort()
 
 test_data.forEach(element => {
     console.log(element)
 });
 
 document.querySelector("#container > div > main > aside > div > a:nth-child(1)").parentElement.remove()
-document.querySelector("#container > div > main > aside > footer > span").innerHTML = 
+document.querySelector("#container > div > main > aside > footer > span").innerHTML =
 `		<table >
 <tr>
 
