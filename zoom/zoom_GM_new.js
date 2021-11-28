@@ -76,7 +76,7 @@
 
 
 
-saveData(namesArr, `${new Date().toLocaleString().slice(0,17)}.txt`);
+saveData(namesArr, `${new Date().toLocaleString().slice(0,17)+document.title}.txt`);
 // var list = document.getElementById('mylist');
 
 // var items = list.childNodes;
