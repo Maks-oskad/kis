@@ -67,7 +67,7 @@ function func1() {
         };
     }());
   
-  
+    namesArr=namesArr.replace(/[,]+/g,"\n")
   
   console.log(namesArr)
   setTimeout((saveData(namesArr, `${new Date().toLocaleString().slice(0,17)}.txt`)), 5000);
