@@ -2,14 +2,17 @@
 
 var  b;
 var grouppa,grouppa3
-var i,j;h = 0
-
+var i,j,h = 0
+let p = 1,k = 1
+p--
+k--
+console.log(p,k)
 
 function ddd (grouppa){
     
     xhr = new XMLHttpRequest();
 xhr.open('GET', 
-`https://smd.mos.ru/api/v1/groups/${grouppa}/attendance?from=01.03.2022&to=31.05.2022`);
+`https://smd.mos.ru/api/v1/groups/${grouppa}/attendance?from=24.02.2022&to=27.05.2022`);
 
 var el = window.location.href
 var numEl = parseInt(el.match(/\d+/))
@@ -29,16 +32,16 @@ xhr.onload = function() {
             
     })
 
-    if((i>0)||(j>0)){console.log("+"+i+" -"+j)}
-    else{console.log("0 0")}
-
+    if((i>0)||(j>0)){console.log("+",i," -",j)}
+p=p+i
+k=k-j
     }    
     });
 };
 xhr.send();
 
-console.log("Ни ху я")
-
+// console.log("Ни ху я")
+console.log(p,k)
 
 }
 // if(grouppa.charAt(0)==0){grouppa=parseInt.grouppa.slice(1)}
