@@ -8,6 +8,8 @@ p--
 k--
 console.log(p,k)
 
+
+
 function ddd (grouppa){
     
     xhr = new XMLHttpRequest();
