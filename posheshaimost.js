@@ -7,7 +7,7 @@
 
 // var el = window.location.href
 // var numEl = parseInt(el.match(/\d+/))
-
+ 
 // xhr.onload = function() {
 //     b = JSON.parse(xhr.responseText);
 //     b.participants.forEach((e)=>{
