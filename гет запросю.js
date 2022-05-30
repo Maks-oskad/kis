@@ -27,7 +27,7 @@ xhr.onload = function() {
     
     xhr.send();
 };
-
+ 
 // ////id людей по группе
 // ddd("https://smd.mos.ru/api/v1/groups/participants/2034255?")
 // let array_b = []
