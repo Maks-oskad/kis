@@ -14,9 +14,20 @@ function getF(getSting) {
         console.log(BD, 'это из запроса гет не функции')
         // BD.participants.forEach((e) => {
 
+         try {
+            
+            if(BD.data.status.key !== "CLOSED")
+            {console.log("закрыта", i)}
+            else
+            {console.log(BD.data.status.key)}
+             } catch (err) {
+        console.log('error')
+            // обработка ошибки
+          
+          }
      };
                 
-               // xhr.send();
+               xhr.send();
           
              
 
@@ -33,18 +44,10 @@ function getF(getSting) {
 
 
 function statusRegistry(){
-for(let i =101; i < 1000; i++){
-    try {
-    getF(`https://smd.mos.ru/api/v1/groups/${i}/status_registry`)
-    if(BD.data.status.key !== "CLOSED")
-    {console.log("закрыта", i)}
-    else
-    {console.log(BD.data.status.key)}
-     } catch (err) {
-console.log('error')
-    // обработка ошибки
-  
-  }
+for(let i =2034250; i < 2034255; i++){
+
+   getF(`https://smd.mos.ru/api/v1/groups/${""+i}/status_registry`)
+
 }
 
 }
