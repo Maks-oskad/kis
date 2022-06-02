@@ -1,6 +1,7 @@
 let id
 let commits = []
 
+
 async function fifu(i,j){
 for(; i< j;i++)
 
@@ -10,7 +11,11 @@ let url = `https://smd.mos.ru/api/v1/groups/${i}`;
 let response = await fetch(url);
 console.log("+")
 commits[i] = await response.json(); // читаем ответ в формате JSON
-}}
+}
+resolve
+}
+
+
 
 fifu(234,236)
 
@@ -38,3 +43,4 @@ let batadata = JSON.stringify(commits)
     }());
   saveData(batadata, 
     `${new Date().toLocaleString().slice(0,17) +document.title}.JSON`)
+    

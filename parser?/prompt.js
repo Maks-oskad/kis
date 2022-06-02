@@ -1,0 +1,4 @@
+
+
+arrZapros = prompt()
+arrZapros.
