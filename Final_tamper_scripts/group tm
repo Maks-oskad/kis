@@ -1,0 +1,115 @@
+// ==UserScript==
+// @name         Гроуп v1.5
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://smd.mos.ru/participants/*/view
+// @icon         https://www.google.com/s2/favicons?domain=mos.ru
+// @grant        unsafeWindow
+// ==/UserScript==
+
+
+document.querySelector("#container > div > main > div > header").innerHTML+=`<button style="color:white; background-color:#10b072" onclick = "scrippt()">гроуп</button>`
+document.querySelector("#container > div > main > div > header").innerHTML+=`<button style="color:white; background-color:#10b072" onclick = "clicker()">кликер</button>`
+var b;
+document.querySelector("#container > div > main > div > header > div.styled__HeaderTail-znndws-2.iRKPst > div").innerText = "Лена котя🐈"
+var grouppa,grouppa3,grouppa2
+var i,j,h,percent,icon = 0
+let p = 1,k = 1
+p--
+k--
+console.log(p,k)
+
+
+function ddd (grouppa){
+
+var     xhr = new XMLHttpRequest();
+xhr.open('GET',
+`https://smd.mos.ru/api/v1/groups/${grouppa}/attendance?from=01.02.2022&to=30.04.2022`);
+
+var el = window.location.href
+var numEl = parseInt(el.match(/\d+/))
+
+xhr.onload = function() {
+    b = JSON.parse(xhr.responseText);
+    b.participants.forEach((e)=>{
+        i= 0
+        j = 0
+    if(e.id == numEl){ i= 0
+        e.lessons.forEach((e)=>{
+            //console.log(e)
+            if(e.presenceMark == "PRESENCE"){i++}
+           // if(e.presenceMark =="DISMISSED"){j++}
+            if(e.presenceMark=="PRESENCE_EXCEEDS"){i++}
+            if(e.presenceMark=="ABSENT"){j++}
+
+    })
+
+    if((i>0)||(j>0)){console.log("+",i," -",j)
+p=p+i
+k=k-j
+
+percent = (p*100/(-k+p))
+   console.log(percent+"%*")//else{percent = (((p/(-k+p))*100)); console.log(percent+"%*")}
+      percent=  percent.toFixed()
+   if(percent<50&percent>=30){icon="👎 "}else if(percent<30){icon="👎😱"}else{ icon="👍 "  }
+                     let k0
+                     k==0?(k0=" 0"):(k0=k)
+
+var place = document.querySelector("#container > div > main > div > div > section > div > div > div > div > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > div.styled__StyledGroup-sc-1d3dg7v-0.fLCGLL > div > div.styled__StyledHeaderWrapper-bozfeq-0.jkJTbk > div.styled__StyledInfo-bozfeq-1.hUVeva > div").innerText = (`${icon+percent}`+` %
+`+ `💚 ${p}`+` посещений`+ `
+💔 ${k}`+ " пропусков" +`
+
+${percent}% +${p}${k0}`)
+
+                    }
+
+    }
+    });
+};
+xhr.send();
+
+console.log(p,k)
+
+
+}
+function scrippt(){
+document.querySelector("#container > div > main > div > div > section > div > div > div > div > div > div.ant-tabs-bar.ant-tabs-top-bar > div > div > div > div > div:nth-child(1) > div:nth-child(3) > div").click()
+
+
+
+
+
+
+grouppa2 = document.querySelectorAll('#container > div > main > div > div > section > div > div > div > div > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > div.styled__StyledGroup-sc-1d3dg7v-0.fLCGLL > div > div.ant-table-wrapper.sc-hEsumM.main-participants-list.sc-hmXxxW.bMcqhk > div > div > div > div > div > table > tbody > tr:nth-child(n) > td.code-col > a > span')
+
+
+
+document.querySelectorAll('.code-col').forEach((e)=>{
+grouppa = (e.innerText.replace("G-00000").replace("G-0000").replace("G-000").replace("G-00").replace("G-0").replace("G-").match(/\d+/))
+    // if(grouppa.substr(1,1)==0){grouppa=parseInt.grouppa.slice(1)}
+var cc = `"<button  class="a2525" onclick="ddd(${grouppa})">Go to ${grouppa}</button>"`
+e.innerHTML = e.innerHTML+cc
+h++ }
+)
+    // Your code here...
+
+}
+
+
+function clicker() {
+    document.querySelectorAll('.a2525').forEach((e)=>{
+        e.click()
+    })
+}
+setTimeout(() => {document.querySelector("#container > div > main > div > div > section > div > div > div > div > div > div.ant-tabs-bar.ant-tabs-top-bar > div > div > div > div > div:nth-child(1) > div:nth-child(3) > div").click(); }, 10000);
+setTimeout(() => {scrippt(); }, 20000);
+setTimeout(() => {clicker(); }, 25000);
+
+//setTimeout(() => {function(){;} }, 5000);
+
+
+unsafeWindow.clicker = clicker;
+unsafeWindow.ddd = ddd;
+unsafeWindow.scrippt =scrippt;
