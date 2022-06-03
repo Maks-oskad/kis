@@ -29,8 +29,9 @@ let id,intId
 let commits = []
 idLesson_arr = arrZaprosFormated ///["2039274","2039275"]
 
+
 function pereborMassiva(idLesson_arr){
-    for(let i = 0; i<idLesson_arr.length ;i++){
+    for(let i = 1; i!=idLesson_arr.length ;i++){
         func1(idLesson_arr[i], i)
         }}
 
