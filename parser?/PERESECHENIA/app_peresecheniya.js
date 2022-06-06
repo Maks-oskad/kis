@@ -50,6 +50,8 @@ pereborMassiva(idLesson_arr)
 
 
 
+
+
 let timerId = setInterval(() =>{ 
     if (commits.length == arrZaprosFormated.length){
         console.log(commits)
@@ -63,7 +65,12 @@ let timerId = setInterval(() =>{
 function func3(){
     // Object.assign(my_base, arrZaprosFormated)
     // console.log (my_base)
-    commits.forEach((e,i)=>{e.id = arrZaprosFormated[i-1]})
+    commits.forEach((e,i)=>{e.id = arrZaprosFormated[i-1]
+        e.lessons.forEach(element => {
+            element.id = arrZaprosFormated[i-1]
+        });
+    
+    })
 }
 
 let SRAVNIVAEM = []
@@ -71,17 +78,31 @@ let LESSONS = []
 
 // подсчет общего числа уроков
 let total_length = 0
-commits.forEach((e)=>{ 
+function func4 (){commits.forEach((e)=>{ 
     total_length += e.lessons.length
     e.lessons.forEach((e)=>{ 
         
         LESSONS.push(e)
+        // Object.defineProperty(LESSONS[1], 3, { value:  44, writable: true })
+        
     })
-})
+})}
+func4()
+
+// function func5 (){commits.forEach((e)=>{
+
+
+
 
 //сравнение уроков по дате
 //куда их сука сохранять и как
 test_obj = {}
+
+
+
+
+
+
 LESSONS.forEach((e)=>{
     for(let i = 0; i<total_length;i++){
         if(e==LESSONS[i]){console.log(e)}
@@ -100,21 +121,23 @@ LESSONS.forEach((e)=>{
     // e = 0  так нельзя потому что может быть 3х пересечения
 })
 
-test_obj.defineProperty(obj, 'key', descriptor);
+// test_obj.defineProperty(obj, 'key', descriptor);
 
 
-Object.defineProperty(test_obj, 1, {
-    value: {
-        a: 42
-    },
-    writable: true
-  });
-//   {1: {…}, key: undefined, a: {…}}
-// 1: {a: 42}
-// a: {a: 42}
-// key: undefined
+///////ПРИВЕР РАБОТЫ Object.defineProperty
+// Object.defineProperty(test_obj, 1, {
+//     value: {
+//         a: 42
+//     },
+//     writable: true
+//   });
+// ВЫВОДИТ
+// //   {1: {…}, key: undefined, a: {…}}
+// // 1: {a: 42}
+// // a: {a: 42}
+// // key: undefined
 
-
+Object.defineProperty(LESSONS[1], 3, { value:  44, writable: true })
 
 
 
