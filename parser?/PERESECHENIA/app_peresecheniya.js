@@ -28,7 +28,7 @@ parseInt(e,10)
 let id,intId
 let commits = []
 let idLesson_arr = arrZaprosFormated ///["2039274","2039275"]
-
+let my_base = {}
 
 function pereborMassiva(idLesson_arr){
     for(let i = 1; i!=idLesson_arr.length ;i++){
@@ -53,22 +53,81 @@ pereborMassiva(idLesson_arr)
 let timerId = setInterval(() =>{ 
     if (commits.length == arrZaprosFormated.length){
         console.log(commits)
+        console.log(arrZaprosFormated)
         clearInterval(timerId)
+        func3()//AEEEEEEEEEEEEE
     }
     }, 5000)
 
 
-
-func3(){
- setTimeout(() => {
-    if (commits.length == arrZaprosFormated.length){
-        console.log(commits)
-    } else {func3()}
-    
-}, 5000);
+function func3(){
+    // Object.assign(my_base, arrZaprosFormated)
+    // console.log (my_base)
+    commits.forEach((e,i)=>{e.id = arrZaprosFormated[i-1]})
 }
 
-func3()
+let SRAVNIVAEM = []
+let LESSONS = []
+
+// подсчет общего числа уроков
+let total_length = 0
+commits.forEach((e)=>{ 
+    total_length += e.lessons.length
+    e.lessons.forEach((e)=>{ 
+        
+        LESSONS.push(e)
+    })
+})
+
+//сравнение уроков по дате
+//куда их сука сохранять и как
+test_obj = {}
+LESSONS.forEach((e)=>{
+    for(let i = 0; i<total_length;i++){
+        if(e==LESSONS[i]){console.log(e)}
+         else if(e.lessonDate == LESSONS[i].lessonDate){
+            console.log(`${e.id}/${LESSONS[i].id}`)
+           // test_obj.[`${i}`].first = LESSONS[i].id
+            Object.defineProperty(test_obj, i, {
+                value: {
+                    a:{ lesson: e.id,g: e},
+                    b:{ lesson: LESSONS[i].id,g: LESSONS[i]} 
+                },
+                writable: true
+              });
+        }
+    }
+    // e = 0  так нельзя потому что может быть 3х пересечения
+})
+
+test_obj.defineProperty(obj, 'key', descriptor);
+
+
+Object.defineProperty(test_obj, 1, {
+    value: {
+        a: 42
+    },
+    writable: true
+  });
+//   {1: {…}, key: undefined, a: {…}}
+// 1: {a: 42}
+// a: {a: 42}
+// key: undefined
+
+
+
+
+
+commits.forEach((e)=>{ for(let i =0; i<commits.length; i++){
+    console.log(commits[i+1].lessons.length)
+    for(let j = 0; j<total_length; j++)
+
+    {console.log(i,j)}
+
+
+
+}})
+
 
 G-02035347
 G-02036637
