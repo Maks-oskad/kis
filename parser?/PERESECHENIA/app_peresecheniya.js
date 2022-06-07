@@ -92,7 +92,7 @@ function func4 (){commits.forEach((e)=>{
 
 //сравнение уроков по дате
 //куда их сука сохранять и как
-test_obj = {}
+test_obj = []
 
 
 
@@ -103,7 +103,7 @@ LESSONS.forEach((e)=>{
          else if(e.lessonDate == LESSONS[i].lessonDate){
             console.log(`${e.id}/${LESSONS[i].id}`)
            // test_obj.[`${i}`].first = LESSONS[i].id
-            Object.defineProperty(test_obj, `dates${i}`, {
+            Object.defineProperty(test_obj, i, {
                 value: {
                     a:{ lesson: e.id,g: e},
                     b:{ lesson: LESSONS[i].id,g: LESSONS[i]} 
@@ -115,12 +115,12 @@ LESSONS.forEach((e)=>{
     // e = 0  так нельзя потому что может быть 3х пересечения
 })
 
-Object.keys(test_obj).forEach(element => {
+test_obj.forEach(element => {
     let x11,x12,x21,x22
     x11 = parseInt(element.a.g.timeFrom.split(":").join(""))
-    x12 = parseInt(element.a.g.timeTo)
-    x21 = parseInt(element.b.g.timeFrom)
-    x22 = parseInt(element.b.g.timeTo)
+    x12 = parseInt(element.a.g.timeTo.split(":").join(""))
+    x21 = parseInt(element.b.g.timeFrom.split(":").join(""))
+    x22 = parseInt(element.b.g.timeTo.split(":").join(""))
     if ((x11<x21<x12)||(x21<x12<x22)||(x11==x21)||(x12==x22)){
         console.log(element)
     }
@@ -143,6 +143,10 @@ Object.keys(test_obj).forEach(element => {
 // // 1: {a: 42}
 // // a: {a: 42}
 // // key: undefined
+
+G-02043524
+G-00003101
+G-02046663
 
 
 
