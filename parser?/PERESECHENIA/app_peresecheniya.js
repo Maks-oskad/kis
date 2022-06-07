@@ -1,8 +1,5 @@
 
 let arrZapros, strZapros, arrZaprosFormated
-
-
-
 //запрос ввода данных
 arrZapros = prompt(`
 
@@ -18,22 +15,20 @@ G-02043344`)
 arrZapros = arrZapros.replaceAll("G-","").replaceAll(/[+\r+\,]+/g,'')
 arrZaprosFormated = arrZapros.split("\n")
 arrZaprosFormated.map((e)=>{
-
 parseInt(e,10)
 })
-
-
-
 
 let id,intId
 let commits = []
 let idLesson_arr = arrZaprosFormated ///["2039274","2039275"]
 let my_base = {}
 
+
 function pereborMassiva(idLesson_arr){
     for(let i = 1; i!=idLesson_arr.length ;i++){
         func1(idLesson_arr[i], i)
         }}
+
 
 async function func1(idLesson_arr, i){
     intId=parseInt(idLesson_arr,10)
@@ -46,10 +41,6 @@ async function func1(idLesson_arr, i){
     }
 
 pereborMassiva(idLesson_arr)
-
-
-
-
 
 
 let timerId = setInterval(() =>{ 
@@ -67,11 +58,15 @@ function func3(){
     // console.log (my_base)
     commits.forEach((e,i)=>{e.id = arrZaprosFormated[i-1]
         e.lessons.forEach(element => {
-            element.id = arrZaprosFormated[i-1]
+            element.idGroup = arrZaprosFormated[i-1]
         });
     
     })
 }
+
+
+
+
 
 let SRAVNIVAEM = []
 let LESSONS = []
@@ -87,18 +82,17 @@ function func4 (){commits.forEach((e)=>{
         
     })
 })}
-func4()
+
+
+
+    func4()
+
 
 // function func5 (){commits.forEach((e)=>{
-
-
-
 
 //сравнение уроков по дате
 //куда их сука сохранять и как
 test_obj = {}
-
-
 
 
 
@@ -109,7 +103,7 @@ LESSONS.forEach((e)=>{
          else if(e.lessonDate == LESSONS[i].lessonDate){
             console.log(`${e.id}/${LESSONS[i].id}`)
            // test_obj.[`${i}`].first = LESSONS[i].id
-            Object.defineProperty(test_obj, i, {
+            Object.defineProperty(test_obj, `dates${i}`, {
                 value: {
                     a:{ lesson: e.id,g: e},
                     b:{ lesson: LESSONS[i].id,g: LESSONS[i]} 
@@ -120,6 +114,19 @@ LESSONS.forEach((e)=>{
     }
     // e = 0  так нельзя потому что может быть 3х пересечения
 })
+
+Object.keys(test_obj).forEach(element => {
+    let x11,x12,x21,x22
+    x11 = parseInt(element.a.g.timeFrom.split(":").join(""))
+    x12 = parseInt(element.a.g.timeTo)
+    x21 = parseInt(element.b.g.timeFrom)
+    x22 = parseInt(element.b.g.timeTo)
+    if ((x11<x21<x12)||(x21<x12<x22)||(x11==x21)||(x12==x22)){
+        console.log(element)
+    }
+});
+
+
 
 // test_obj.defineProperty(obj, 'key', descriptor);
 
@@ -137,7 +144,6 @@ LESSONS.forEach((e)=>{
 // // a: {a: 42}
 // // key: undefined
 
-Object.defineProperty(LESSONS[1], 3, { value:  44, writable: true })
 
 
 
@@ -149,8 +155,10 @@ commits.forEach((e)=>{ for(let i =0; i<commits.length; i++){
 
 
 
-}})
+}})    
 
+
+Object.defineProperty(LESSONS[1], 3, { value:  44, writable: true })
 
 G-02035347
 G-02036637
