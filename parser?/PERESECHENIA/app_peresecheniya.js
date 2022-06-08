@@ -8,8 +8,9 @@ arrZapros = prompt(`
 ------------------------------------------------------
 (не обязательно указывать те группы которые пересекаются
 скрипт найдет эти группы сам)
-------------------------------------------------------`,`G-00005657
-G-02043344`)
+------------------------------------------------------`,`G-02043524
+G-00003101
+G-02046663`)
 //форматирование
 // arrZapros.replace(/[\r+\,]+/g,'')
 arrZapros = arrZapros.replaceAll("G-","").replaceAll(/[+\r+\,]+/g,'')
@@ -25,7 +26,7 @@ let my_base = {}
 
 
 function pereborMassiva(idLesson_arr){
-    for(let i = 1; i!=idLesson_arr.length ;i++){
+    for(let i = 0; i!=idLesson_arr.length ;i++){
         func1(idLesson_arr[i], i)
         }}
 
@@ -125,6 +126,85 @@ test_obj.forEach(element => {
         console.log(element)
     }
 });
+
+
+
+arrx = [""]
+test_obj.forEach((e,i)=> {
+    arrx.push(e.id)
+    arrx[i].push(e.a.g.id)
+    arrx[i].push(e.a.g.id)  
+})
+
+test_obj.length
+for (let index = 0; index < test_obj.length; index++) {
+    arrx[index][1] = test_obj[index].a.g.id
+    arrx[index][2] = test_obj[index].b.g.id
+}
+
+
+
+//сравнение на пересечение
+// нужен массив база пересеченных лесонов с
+//  айдишниками групп на втором ряду [1][2]
+commits.forEach(e=>{ 
+    
+    e.participants.forEach(e=>)
+    console.log(e.id,e.participants)})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
