@@ -119,6 +119,7 @@ LESSONS.forEach((e)=>{
     // e = 0  так нельзя потому что может быть 3х пересечения
 })
 test_obj2 ={}
+test_obj3 =[]
 test_obj.forEach((element,i,emassive) => {
     let x11,x12,x21,x22
     x11 = parseInt(element.a.g.timeFrom.split(":").join(""))
@@ -128,20 +129,87 @@ test_obj.forEach((element,i,emassive) => {
     if ((x11<x21<x12)||(x21<x12<x22)||(x11==x21)||(x12==x22)){
         console.log(element)
         test_obj2[i] ={}
-        console.log(test_obj2)
+        test_obj3[i] = element.a.g.id+"-"+element.b.g.id
     }
-    emassive.forEach((e,i2)=>{
-    if ((element.a.g.id==e.b.g.id)&(element.b.g.id==e.a.g.id)){
-console.log("ALLWAYS",i,(element.a.g.id),(e.b.g.id),(element.b.g.id),(e.a.g.id) )
-let bbb = test_obj[i2].a.g.id
-test_obj2[i] ={}
-test_obj2[i][bbb] = e.b.g.id
-// test_obj2[i].
-    }
+//     emassive.forEach((e,i2)=>{
+//     if ((element.a.g.id==e.b.g.id)&(element.b.g.id==e.a.g.id)){
+// console.log("ALLWAYS",i,(element.a.g.id),(e.b.g.id),(element.b.g.id),(e.a.g.id) )
+// let bbb = test_obj[i2].a.g.id
+// if(test_obj2[i] !=0){
+// test_obj2[i][bbb] += "/"+e.b.g.id}
+// // test_obj2[i].
+//     }
 
+// })
+
+console.log(test_obj2)
+console.log(test_obj3)
+});
+
+
+
+test_obj3.forEach((e,i)=>{
+    test_obj3[i] = test_obj3[i].split('-')
+    test_obj3[i].push('1')
+
+    // for(let i3=0; i<test_obj3.length;i++){
+    //     if split
+    // }
 })
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////работает
+
+test_obj3.forEach((e,i)=>{
+    console.log(i,'iteration')
+    try { 
+
+        for(let i3=0; i<test_obj3.length;i++){
+        if (e[0]=test_obj3[i3][1])
+        {console.log(e)}
+        }
+    }
+        
+     catch (error) {
+        
+    }
+   
+
+/////работает    
+    
+})
+test_obj3.forEach((e,i)=>{
+    if (e>0){
+        if e[0]
+
+
+
+
+
+    }
+})
+
+
 
 
 
