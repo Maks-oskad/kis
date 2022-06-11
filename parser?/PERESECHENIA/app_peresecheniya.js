@@ -146,7 +146,128 @@ console.log(test_obj2)
 console.log(test_obj3)
 });
 
+////////////////////////////////33333333333
+//////////////////////////////////333333333333
+/////////////////////////////////////33333333333
 
+
+
+
+// commits
+// test_obj
+
+
+test_obj.forEach((e,i) => {//чистка дублей в пересекающихся ID уроков
+    if(e==undefined){console.log("udefined start", i)}
+    else{
+    for(let i1 = 0; i1<test_obj.length; i1++){
+        console.log(i1)
+       if(test_obj[i1] == undefined){console.log('undefined')}
+     else if ((e.a.lesson==test_obj[i1].b.lesson)&((e.b.lesson==test_obj[i1].a.lesson))){
+        console.log(test_obj[i1],"/n",e)
+
+        test_obj[i1]=undefined
+        continue
+
+    }    //console.log('no')
+}
+}
+});
+
+
+
+test_obj = test_obj.filter(Boolean) //убирает пустые
+
+
+
+// выводит всего значения посещений и пропусков
+
+// commits.forEach((e,i)=>{
+//     e.participants.forEach((e,i)=>{
+//         e.lessons.forEach((e,i)=>{
+
+//             console.log("+")
+//         })
+//     })
+// })
+
+
+
+
+commits.forEach((e1,i1)=>{
+    e1.participants.forEach((e2,i2)=>{
+        e2.lessons.filter(Boolean).forEach((e3,i3)=>{
+
+            test_obj.forEach((e31, i31)=>{
+                if (e31.a.g.id == e3.id){
+                    console.log("no")
+                    test_obj.forEach((e311, i311)=>{
+                        if (e311.b.g.id == e3.id){
+                            console.log("yes")
+                        }
+
+                    })
+
+                }
+                else if (e31.b.g.id == e3.id){
+                    test_obj.forEach((e312, i312)=>{
+                        if (e312.a.g.id == e.id){
+                            console.log("yes")
+                        }
+
+                    })
+
+                }
+
+                {console.log("yas0")}
+            }    )
+
+
+        })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////хз что
 
 test_obj3.forEach((e,i)=>{
     test_obj3[i] = test_obj3[i].split('-')
