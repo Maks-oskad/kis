@@ -8,9 +8,15 @@ arrZapros = prompt(`
 ------------------------------------------------------
 (не обязательно указывать те группы которые пересекаются
 скрипт найдет эти группы сам)
-------------------------------------------------------`,`G-02043524
+------------------------------------------------------`,`G-02035347
+G-02036637
 G-00003101
-G-02046663`)
+G-02037888
+G-02038427
+G-02043343
+G-02044109
+G-02035458
+G-02044066`)
 //форматирование
 // arrZapros.replace(/[\r+\,]+/g,'')
 arrZapros = arrZapros.replaceAll("G-","").replaceAll(/[+\r+\,]+/g,'')
@@ -57,9 +63,9 @@ let timerId = setInterval(() =>{
 function func3(){
     // Object.assign(my_base, arrZaprosFormated)
     // console.log (my_base)
-    commits.forEach((e,i)=>{e.id = arrZaprosFormated[i-1]
+    commits.forEach((e,i)=>{e.id = arrZaprosFormated[i]
         e.lessons.forEach(element => {
-            element.idGroup = arrZaprosFormated[i-1]
+            element.idGroup = arrZaprosFormated[i]
         });
     
     })
@@ -69,14 +75,12 @@ function func3(){
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
 
-
-
-
 let SRAVNIVAEM = []
 let LESSONS = []
-
 // подсчет общего числа уроков
 let total_length = 0
+
+
 function func4 (){commits.forEach((e)=>{ 
     total_length += e.lessons.length
     e.lessons.forEach((e)=>{ 
@@ -98,53 +102,234 @@ function func4 (){commits.forEach((e)=>{
 //куда их сука сохранять и как
 test_obj = []
 
+// for(let k =0; k<total_length;k++){
+//     test_obj[k]={}
+// }
 
 
 
-LESSONS.forEach((e)=>{
-    for(let i = 0; i<total_length;i++){
-        if(e==LESSONS[i]){console.log(e)}
-         else if(e.lessonDate == LESSONS[i].lessonDate){
-            console.log(`${e.id}/${LESSONS[i].id}`)
-           // test_obj.[`${i}`].first = LESSONS[i].id
-            Object.defineProperty(test_obj, i, {
-                value: {
-                    a:{ lesson: e.id,g: e},
-                    b:{ lesson: LESSONS[i].id,g: LESSONS[i]} 
-                },
-                writable: true
-              });
+
+
+for(i=0; i<total_length;i++){
+// let e1 =LESSONS[i]
+    console.log('start', LESSONS[i])
+    for(i2=0; i2<total_length;i2++){
+// let e2 =LESSONS[i2]
+        if((LESSONS[i]!=LESSONS[i2])&&(LESSONS[i].lessonDate==LESSONS[i2].lessonDate)){
+            console.log("try", LESSONS[i2])
+            let x11,x12,x21,x22 ="x"
+    x11 = parseInt((LESSONS[i].timeFrom.split(":").join("")))
+    x12 = parseInt((LESSONS[i].timeTo.split(":").join("")))
+    x21 = parseInt((LESSONS[i2].timeFrom.split(":").join("")))
+    x22 = parseInt((LESSONS[i2].timeTo.split(":").join("")))
+    console.log(` ${x11}   ${x12} ${x21} ${x22}
+   ${LESSONS[i].timeFrom } \  ${LESSONS[i].timeTo}  \ ${LESSONS[i2].timeFrom}  \ ${LESSONS[i2].timeTo}`)
+            if(((x11<x21)&&(x21<x12))
+            ||((x21<x12)&&(x12<x22))||(x11==x21)||(x12==x22)){
+                // test_obj[i] = {}
+
+test_obj[i] =  {
+                        a:{ lesson: LESSONS[i].id,g: LESSONS[i]},
+                        b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]} 
+                    }
+    //             Object.defineProperty(test_obj, i, {
+    //                 value: {
+    //                     a:{ lesson: LESSONS[i].id,g: LESSONS[i]},
+    //                     b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]}
+    //                 },
+    //                 writable: true,
+    //                 enumerable: true,    // логическое значение (по умолчанию false)
+    // configurable: true,   // логическое значение (по умолчанию false)
+
+    //               });
+                console.log("end", LESSONS[i2], "+++++++++++++++++++++++++")
+               
+            }
+            
         }
+  
+
     }
-    // e = 0  так нельзя потому что может быть 3х пересечения
+
+}
+for (let index = 0; index < total_length; index++){console.log(test_obj[index])}
+
+
+
+
+
+
+
+commits.forEach((e1,i1)=>{
+    e1.participants.forEach((e2,i2)=>{
+        e2.lessons.filter(Boolean).forEach((e3,i3)=>{
+
+            test_obj.forEach((e31, i31)=>{
+                if ((e31.a.g.id == e3.id)||(e31.b.g.id == e3.id)){
+                    let AB_e31 //нашли а или б? и присваемаем ей найденное
+                    if(i31=1){AB_e31 = e31.a.g.id}else{AB_e31 = e31.b.g.id}
+                    console.log("нашли")
+
+
+
+
+                    commits.forEach((e1,i1)=>{
+                        e1.participants.forEach((be2,bi2)=>{
+                            if(be2.id == e2.id){
+                            be2.lessons.filter(Boolean).forEach((be4,bi4)=>{
+
+                    
+                                            
+                            if (AB_e31 == be4.id){
+                                console.log(e2.fio," " ,e2.id,"  ",e31.a.g.id," G-",e1.id," ",e31.b.g.id,`
+                                `)
+                                commits.forEach((e9,i9)=>{
+                                    e9.participants.forEach((e90,i90)=>{
+                                          e90.lessons.filter(Boolean).forEach((e91,i91)=>{
+                                            //   if (e91=e31.a.g.id){console.log(e91.idGroup, e91.lessonDate, e91.timeFrom, e91.timeTo)}
+                                            //   if (e91=e31.b.g.id){console.log(e91.idGroup, e91.lessonDate, e91.timeFrom, e91.timeTo)}
+                                          })
+                                })
+                            })
+                                breakk()
+                            }
+
+                        
+                    
+
+                    })}})})
+
+                }
+
+
+                {console.log("yas0")}
+            }    )
+
+
+        })
+    })
 })
-test_obj2 ={}
-test_obj3 =[]
-test_obj.forEach((element,i,emassive) => {
-    let x11,x12,x21,x22
-    x11 = parseInt(element.a.g.timeFrom.split(":").join(""))
-    x12 = parseInt(element.a.g.timeTo.split(":").join(""))
-    x21 = parseInt(element.b.g.timeFrom.split(":").join(""))
-    x22 = parseInt(element.b.g.timeTo.split(":").join(""))
-    if ((x11<x21<x12)||(x21<x12<x22)||(x11==x21)||(x12==x22)){
-        console.log(element)
-        test_obj2[i] ={}
-        test_obj3[i] = element.a.g.id+"-"+element.b.g.id
-    }
-//     emassive.forEach((e,i2)=>{
-//     if ((element.a.g.id==e.b.g.id)&(element.b.g.id==e.a.g.id)){
-// console.log("ALLWAYS",i,(element.a.g.id),(e.b.g.id),(element.b.g.id),(e.a.g.id) )
-// let bbb = test_obj[i2].a.g.id
-// if(test_obj2[i] !=0){
-// test_obj2[i][bbb] += "/"+e.b.g.id}
-// // test_obj2[i].
-//     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////..........................................................................
+//  i = 0
+// LESSONS.forEach((e1,i1)=>{
+//     console.log('start', e1)
+//     LESSONS.forEach((e2,i2)=>{
+// //         if((e1!=e2)&&(e1.lessonDate==e2.lessonDate)){
+// //             console.log("try", e2)
+// //             let x11,x12,x21,x22 ="x"
+// //     x11 = parseInt((e1.timeFrom.split(":").join("")))
+// //     x12 = parseInt((e1.timeTo.split(":").join("")))
+// //     x21 = parseInt((e2.timeFrom.split(":").join("")))
+// //     x22 = parseInt((e2.timeTo.split(":").join("")))
+// //     console.log(` ${x11}   ${x12} ${x21} ${x22}
+// //    ${e1.timeFrom } \  ${e1.timeTo}  \ ${e2.timeFrom}  \ ${e2.timeTo}`)
+// //             if(((x11<x21)&&(x21<x12))
+// //             ||((x21<x12)&&(x12<x22))||(x11==x21)||(x12==x22)){
+// //                 test_obj[i1] = {}
+// // stringName = toString(e1.id)
+// // // test_obj[stringName] = {
+// // //                         a:{ lesson: LESSONS[i1].id,g: LESSONS[i1]},
+// // //                         b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]} 
+// // //                     }
+// //                 Object.defineProperty(test_obj[i1], i1, {
+// //                     value: {
+// //                         a:{ lesson: LESSONS[i1].id,g: LESSONS[i1]},
+// //                         b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]}
+// //                     },
+// //                     writable: true,
+// //                     enumerable: true,    // логическое значение (по умолчанию false)
+// //     configurable: true,   // логическое значение (по умолчанию false)
+
+// //                   });
+// //                 console.log("end", e2, "+++++++++++++++++++++++++")
+// //                 i++
+// //             }
+            
+// //         }
+// //     })
 // })
+// //     emassive.forEach((e,i2)=>{
+// //     if ((element.a.g.id==e.b.g.id)&(element.b.g.id==e.a.g.id)){
+// // console.log("ALLWAYS",i,(element.a.g.id),(e.b.g.id),(element.b.g.id),(e.a.g.id) )
+// // let bbb = test_obj[i2].a.g.id
+// // if(test_obj2[i] !=0){
+// // test_obj2[i][bbb] += "/"+e.b.g.id}
+// // // test_obj2[i].
+// //     }
 
-console.log(test_obj2)
-console.log(test_obj3)
-});
+// // })
+
+// console.log(test_obj2)
+// console.log(test_obj3)
+// });
 
 ////////////////////////////////33333333333
 //////////////////////////////////333333333333
@@ -215,7 +400,7 @@ commits.forEach((e1,i1)=>{
                     
                                             
                             if (AB_e31 == be4.id){
-                                console.log(e2.fio," " ,e2.id,"  ",e31.a.g.id,"  ",e31.b.g.id,`
+                                console.log(e2.fio," " ,e2.id,"  ",e31.a.g.id," G-",e1.id," ",e31.b.g.id,`
                                 `)
                                 commits.forEach((e9,i9)=>{
                                     e9.participants.forEach((e90,i90)=>{
