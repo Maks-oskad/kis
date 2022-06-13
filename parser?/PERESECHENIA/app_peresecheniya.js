@@ -1,4 +1,3 @@
-
 let arrZapros, strZapros, arrZaprosFormated
 //запрос ввода данных
 arrZapros = prompt(`
@@ -156,59 +155,47 @@ for (let index = 0; index < total_length; index++){console.log(test_obj[index])}
 
 
 
-
-
+let arrFINAL = []
 
 
 commits.forEach((e1,i1)=>{
     e1.participants.forEach((e2,i2)=>{
         e2.lessons.filter(Boolean).forEach((e3,i3)=>{
-
+if (e3.presenceMark == "PRESENCE"){
+                    let AB_e31
             test_obj.forEach((e31, i31)=>{
-                if ((e31.a.g.id == e3.id)||(e31.b.g.id == e3.id)){
-                    let AB_e31 //нашли а или б? и присваемаем ей найденное
-                    if(i31=1){AB_e31 = e31.a.g.id}else{AB_e31 = e31.b.g.id}
-                    console.log("нашли")
+                let true1 = 0
+                if(e31.a.g.id == e3.id){true1 = 1 ;AB_e31 = e31.b.g.id}
+                if(e31.b.g.id == e3.id){true1 = 1 ;AB_e31 = e31.a.g.id}
+                if (true1>0){
+                     //нашли а или б? и присваемаем ей найденное
+                    // if(i31>0){AB_e31 = e31.a.g.id}else{AB_e31 = e31.b.g.id}
 
-
-
-
-                    commits.forEach((e1,i1)=>{
-                        e1.participants.forEach((be2,bi2)=>{
+                    console.log(i31,"нашли" ,e3.id, "НЕ НАШЛИ",AB_e31,  e31.a.g.id, e31.b.g.id)
+///////////////////////////////////////////////////////
+                    commits.forEach((be1,bi1)=>{
+                        be1.participants.forEach((be2,bi2)=>{
                             if(be2.id == e2.id){
                             be2.lessons.filter(Boolean).forEach((be4,bi4)=>{
-
-                    
+                                if (be4.presenceMark == "PRESENCE"){
+                    console.log("presence mark be4 ", be4,be1, e2)
                                             
-                            if (AB_e31 == be4.id){
-                                console.log(e2.fio," " ,e2.id,"  ",e31.a.g.id," G-",e1.id," ",e31.b.g.id,`
-                                `)
-                                commits.forEach((e9,i9)=>{
-                                    e9.participants.forEach((e90,i90)=>{
-                                          e90.lessons.filter(Boolean).forEach((e91,i91)=>{
-                                            //   if (e91=e31.a.g.id){console.log(e91.idGroup, e91.lessonDate, e91.timeFrom, e91.timeTo)}
-                                            //   if (e91=e31.b.g.id){console.log(e91.idGroup, e91.lessonDate, e91.timeFrom, e91.timeTo)}
-                                          })
-                                })
-                            })
+                            if ((AB_e31 == be4.id)){
+                                console.log(AB_e31)
+                                console.log(e2.fio,be2.fio," " ,e2.id,"  ",e31.a.g.id," G-",e31.a.g.idGroup,e31.a.g.lessonDate, ` 
+                                ` ," ",e31.b.g.id," G-",e31.b.g.idGroup," ", e31.b.g.lessonDate)
+                                
+                                arrFINAL.push([e2.fio,be2.fio,e2.id,e31.a.g.id,
+                                    " G-",e31.a.g.idGroup,e31.a.g.lessonDate,e31.b.g.id,e31.b.g.idGroup,e31.b.g.lessonDate])
+                                console.log(arrFINAL)
+//                                 commits.forEach((e9,i9)=>{
+//                                     e9.participants.forEach((e90,i90)=>{
+//                                           e90.lessons.filter(Boolean).forEach((e91,i91)=>{
+//                                             //   if (e91=e31.a.g.id){console.log(e91.idGroup, e91.lessonDate, e91.timeFrom, e91.timeTo)}
+//                                             //   if (e91=e31.b.g.id){console.log(e91.idGroup, e91.lessonDate, e91.timeFrom, e91.timeTo)}
+// })})})
                                 breakk()
-                            }
-
-                        
-                    
-
-                    })}})})
-
-                }
-
-
-                {console.log("yas0")}
-            }    )
-
-
-        })
-    })
-})
+                            }}})}})})}{console.log("yas0")}})}})})})
 
 
 
