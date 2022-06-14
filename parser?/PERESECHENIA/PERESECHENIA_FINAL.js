@@ -1,4 +1,4 @@
-{
+
 let arrZapros, strZapros, arrZaprosFormated
 //запрос ввода данных
 arrZapros = prompt(`
@@ -66,7 +66,7 @@ function func3(){
     
     })
 }
-}
+
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
@@ -164,25 +164,54 @@ let arrFINAL = []
 
 test_obj.forEach((t,i)=>{
     commits.forEach((c2,i2)=>{
+        continue
         c2.participants.forEach((p3,i3)=>{
             p3.lessons.forEach((l4,i4)=>{
                 console.log("lessons")
             })
         })
-
+        
     })
     console.log(arrFINAL)})
+    
+    let find1 = {}
+    let itterations = 0
+    for (let i1 = 0; i1 < test_obj.length; i1++) {
+        if(i2==1)break
+        for (let i2 = 0; i2 < commits.length; i2++) {
+            for (let i3 = 0; i3 < commits[i2].participants.length; i3++) {
+                for (let i4 = 0; i4 < commits[i2].participants[i3].lessons.length; i4++) {
+                    
+                    if(test_obj[i1].a.lesson==commits[i2].participants[i3].lessons[i4].id){
+                        find1 = {"i1": i1, "i2":i2, "i3":i3, "i4":i4}
+                        // console.log("find1")
+                    // }&&(commits[i2].participants[find1.i3])
+                        if((test_obj[i1].b.lesson==commits[i2].participants[i3].lessons[i4].id)){
+                            console.log(test_obj[i1].b.lesson,
+                                commits[i2].participants[i3].lessons[i4].id,
+                                test_obj[find1.i1].a.lesson,
+                                commits[find1.i2].participants[find1.i3].lessons[find1.i4].id,
+                                find1.i1, 
+                                find1.i2, 
+                                find1.i3, 
+                                find1.i4, 
+                                )
+                                console.log("lessons",i1,i2,i3,i4)
+                                
+                            }
+                    console.log("lessons")
+                }
 
 
-for (let i1 = 0; i1 < test_obj.length; i1++) {
-    for (let i2 = 0; i2 < commits.length; i2++) {
-        for (let i3 = 0; i3 < commits.participantslength; i3++) {
-            const element = array[i3];
-            index
+                
+            }
         }
     }
-    
-}
+    console.log("lessons",i1,i2,i3,i4)
+}  
+
+
+
 
 
 // function FINAL(){
