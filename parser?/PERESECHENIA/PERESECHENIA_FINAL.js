@@ -299,11 +299,11 @@ if (e3.presenceMark == "PRESENCE"){
                     commits.forEach((be1,bi1)=>{
                         be1.participants.forEach((be2,bi2)=>{
                             if(be2.id == e2.id){
-                            be2.lessons.filter(Boolean).forEach((be4,bi4)=>{
-                                if (be4.presenceMark == "PRESENCE"){
-                    console.log("presence mark be4 ", be4,be1, e2)
+                            be2.lessons.filter(Boolean).forEach((be3,bi4)=>{
+                                if (be3.presenceMark == "PRESENCE"){
+                    console.log("presence mark be3 ", be3,be1, e2)
                                             
-                            if ((AB_e31 == be4.id)){
+                            if ((AB_e31 == be3.id)){
                                 console.log(AB_e31)
                                 console.log(e2.fio,be2.fio," " ,e2.id,"  ",e31.a.g.id," G-",e31.a.g.idGroup,e31.a.g.lessonDate, ` 
                                 ` ," ",e31.b.g.id," G-",e31.b.g.idGroup," ", e31.b.g.lessonDate)
@@ -509,11 +509,11 @@ commits.forEach((e1,i1)=>{
                     commits.forEach((e1,i1)=>{
                         e1.participants.forEach((be2,bi2)=>{
                             if(be2.id == e2.id){
-                            be2.lessons.filter(Boolean).forEach((be4,bi4)=>{
+                            be2.lessons.filter(Boolean).forEach((be3,bi4)=>{
 
                     
                                             
-                            if (AB_e31 == be4.id){
+                            if (AB_e31 == be3.id){
                                 console.log(e2.fio," " ,e2.id,"  ",e31.a.g.id," G-",e1.id," ",e31.b.g.id,`
                                 `)
                                 commits.forEach((e9,i9)=>{
