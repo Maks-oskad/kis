@@ -310,7 +310,7 @@ if (e3.presenceMark == "PRESENCE"){
                                 
                                 arrFINAL.push(["/",e2.fio,be2.fio,e2.id,e31.a.g.id,
                                     " G-",e31.a.g.idGroup,e31.a.g.lessonDate,e31.b.g.id,e31.b.g.idGroup,e31.b.g.lessonDate])
-                                console.log(arrFINAL)
+                                
 //                                 commits.forEach((e9,i9)=>{
 //                                     e9.participants.forEach((e90,i90)=>{
 //                                           e90.lessons.filter(Boolean).forEach((e91,i91)=>{
