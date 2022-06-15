@@ -8,12 +8,118 @@ arrZapros = prompt(`
 ------------------------------------------------------
 (не обязательно указывать те группы которые пересекаются
 скрипт найдет эти группы сам)
-------------------------------------------------------`,`G-02035022
-G-02042549
+------------------------------------------------------`,`G-02043524
+G-00003101
+G-02046663
+G-02035347
+G-02036637
+G-00003101
+G-02037888
+G-02038427
+G-02043343
+G-02044109
+G-02035458
 G-02044066
-G-02042934
+G-00002734
+G-02044111
+G-02048329
+G-02032419
+G-00000546
+G-02038438
+G-02043345
+G-02046663
+G-02035446
+G-02044108
+G-02043348
+G-02045066
+G-02046127
+G-02036744
+G-02044232
+G-02044093
+G-02043524
+G-02043346
+G-02046130
+G-02037480
+G-02043735
+G-02043351
+G-02044105
+G-02046639
+G-02042968
+G-02039270
+G-02043764
+G-02042552
+G-02035022
+G-02037238
+G-02036975
+G-02035471
+G-00005657
+G-00002737
+G-02038429
+G-02042549
 G-02035247
-G-02035471`)
+G-02025943
+G-02035749
+G-02032416
+G-02038437
+G-02029292
+G-02012658
+G-02025948
+G-02042554
+G-02035548
+G-02033716
+G-02025947
+G-02037180
+G-02034255
+G-02044091
+G-02038433
+G-02038430
+G-02036980
+G-02037118
+G-02035453
+G-02032417
+G-02037156
+G-02039274
+G-02043344
+G-02046672
+G-02042934
+G-02043491
+G-02044090
+G-02046586
+G-02043338
+G-02052498
+G-02043350
+G-02043339
+G-02043347
+G-02043340
+G-02043349
+G-02043353
+G-02044107
+G-02042966
+G-02043737
+G-02043736
+G-02042964
+G-02044086
+G-02046129
+G-02048275
+G-02048423
+G-02048424
+G-02046654
+G-02048331
+G-02047374
+G-02048379
+G-02048420
+G-02048426
+G-02048428
+G-02048706
+G-02048710
+G-02049039
+G-02052092
+G-02048418
+G-02048419
+G-02044238
+G-02052500
+G-02052764
+G-02052732`)
 //форматирование
 // arrZapros.replace(/[\r+\,]+/g,'')
 arrZapros = arrZapros.replaceAll("G-","").replaceAll(/[+\r+\,]+/g,'')
@@ -70,7 +176,7 @@ function func3(){
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
-{
+
 
 let SRAVNIVAEM = []
 let LESSONS = []
@@ -156,9 +262,133 @@ let batadata = JSON.stringify(commits)
         };
     }());
   
-}
+
 // 333333333333333333333333333333333
-{
+
+
+
+
+
+
+
+    arrMASS = []
+    let not_finded_tesOBJ,howMatch,swicher
+    let cashID
+
+    ////////////////////////////////////////////
+    commits.forEach((e1,i1)=>{e1.participants.forEach((e2,i2)=>{arrMASS.push(e2)})})
+
+    // arrMASS.filter(Boolean).forEach((e,i)=>{
+    //     arrMASS.filter(Boolean).forEach((e2,i2)=>{
+    //         if(e.id==e2.id){
+    //             if(i1!==i2){
+                   
+    //                try {                   
+    //                 for(let i3 = 0; i<arrMASS[i2].lessons.length; i3++){
+    //                     arrMASS[i].lessons.push(arrMASS[i2].lessons[i3])
+    //                 }
+                    
+                    
+    //                 arrMASS[i2]= undefined
+    //             console.log("+")
+                    
+    //                } catch (error) {
+                    
+    //                }
+                   
+
+    //         }
+    // }})
+    // })
+    for(let i = 0; i<arrMASS.length;i++){
+        arrMASS[i].i = i}
+
+for (let i1 = 0; i1 <= arrMASS.length; i1++) {
+    i2= 0
+    for (let i2 = 0; i2 <= arrMASS.length; i2++) {
+  if((arrMASS[i1])&&(arrMASS[i2])){
+        if((arrMASS[i1].id)==(arrMASS[i2].id)){
+            console.log(i1,i2)
+            if(arrMASS[i1].i != arrMASS[i2].i){
+
+                console.log(i1, i2)
+                
+                arrMASS[i1].lessons = arrMASS[i1].lessons.concat(arrMASS[i2].lessons);
+                console.log( arrMASS[i1].lessons,arrMASS[i2].lessons )
+                
+                
+                arrMASS[i2] = undefined
+            }
+    }
+}
+    }
+    
+    
+}  
+arrMASS = arrMASS.filter(Boolean)
+    
+
+
+
+
+////////////////////////////////////////////
+arrMASS.forEach(e1=>{swicher=0
+    e1.lessons.forEach(e=>{
+
+    for (let i1 = 0; i1 < test_obj.length; i1++) 
+    
+    if(swicher<1){
+        if((e.id==test_obj[i1].a.g.id)||(e.id==test_obj[i1].b.g.id)){
+            if (e.id==test_obj[i1].a.g.id){
+                not_finded_tesOBJ = test_obj[i1].b.g.id }
+            else{
+                not_finded_tesOBJ = test_obj[i1].a.g.id}
+    // console.log("e.id first^:", e.id)
+    console.log("+")
+    cashID = e.id
+    swicher = 1
+}
+}else     if(swicher=1){
+    if (e.id==not_finded_tesOBJ)
+    {
+        console.log("e.id sec^:", e.id, e1.fio)
+   
+    }
+
+                                                                    }
+
+
+})})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let arrFINAL = []
 
@@ -209,6 +439,21 @@ test_obj.forEach((t,i)=>{
     }
     console.log("lessons",i1,i2,i3,i4)
 }  
+
+
+
+commits.forEach((e1,i1)=>{e1.participants.forEach((e2,i2)=>{
+e2.lessons.forEach((e3,i3)=>{
+
+for (let i1 = 0; i1 < test_obj.length; i1++) {
+
+    if((e3.id==test_obj.a.g.id)||(e3.id==test_obj.b.g.id)){
+if (e3.id==test_obj.a.g.id){not_finded_tesOBJ = test_obj.a.g.id }else{not_finded_tesOBJ = test_obj.b.g.id}
+    console.log("+")
+    }
+}
+})
+})})
 
 
 
