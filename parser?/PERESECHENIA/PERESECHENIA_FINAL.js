@@ -168,11 +168,30 @@ function func3(){
     commits.forEach((e,i)=>{e.id = arrZaprosFormated[i]
         e.lessons.forEach(element => {
             element.idGroup = arrZaprosFormated[i]
+            
         });
-    
+        e.participants.forEach((e2,i2)=>{
+            e2.lessons?.forEach((e3, i3)=>{
+                Object.assign(commits[i].participants[i2].lessons[i3], {idG:commits[i].id})
+            })
+        })
+        // e.candidates.forEach((e2,i2)=>{
+        //     e2.lessons?.forEach((e3, i3)=>{
+        //         Object.assign(commits[i].participants[i2].lessons[i3], {idG:commits[i].id})
+        //     })
+        // })          CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES    
     })
 }
 
+
+
+// commits.forEach((e1, i1)=>{
+//     e1.participants.forEach((e2,i2)=>{
+//         e2.lessons?.forEach((e3, i3)=>{
+//             Object.assign(commits[i1].participants[i2].lessons[i3], {id:commits[i1].id})
+//         })
+//     })
+// })
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
 ////////////////////////////////////222222222222222222222222222222222
@@ -276,7 +295,16 @@ let batadata = JSON.stringify(commits)
     let cashID
 
     ////////////////////////////////////////////
+
     commits.forEach((e1,i1)=>{e1.participants.forEach((e2,i2)=>{arrMASS.push(e2)})})
+    // commits.forEach((e1,i1)=>{e1.candidates?.forEach((e2,i2)=>{arrMASS.push(e2); console.log(e2, "candidates")})})
+    // CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES    
+    
+
+for (const [key,val] of commits) {
+
+    
+}
 
     // arrMASS.filter(Boolean).forEach((e,i)=>{
     //     arrMASS.filter(Boolean).forEach((e2,i2)=>{
@@ -359,10 +387,6 @@ arrMASS.forEach(e1=>{swicher=0
 
 
 })})
-
-
-
-
 
 
 
