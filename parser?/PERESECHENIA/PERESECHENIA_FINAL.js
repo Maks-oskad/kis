@@ -301,10 +301,10 @@ let batadata = JSON.stringify(commits)
     // CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES         CANDIDATES    
     
 
-for (const [key,val] of commits) {
+// for (const [key,val] of commits) {
 
     
-}
+// }
 
     // arrMASS.filter(Boolean).forEach((e,i)=>{
     //     arrMASS.filter(Boolean).forEach((e2,i2)=>{
@@ -354,7 +354,88 @@ for (let i1 = 0; i1 <= arrMASS.length; i1++) {
     
 }  
 arrMASS = arrMASS.filter(Boolean)
-    
+
+
+OBJ_test_solo ={}
+arr_test_solo1=[]
+arr_test_solo2=[]
+
+let onneeee1 ={}
+let onneeee2 ={}
+
+let i=0
+////////////////////////////////////////////
+arrMASS.forEach((e1,i1)=>{
+//каждый человек
+// if (i<100){dkdlm()}
+
+arr_test_solo1.splice(0,arr_test_solo1.length)
+// arr_test_solo1 = [] //lessons
+
+    e1.lessons?.forEach((e2,i2)=>{
+//каждый урок
+arr_test_solo1.push(e2.id)
+})
+
+
+test_obj.forEach((e11,i11)=>{
+        arr_test_solo2.splice(0,arr_test_solo2.length) //a,b
+        
+        arr_test_solo2.push(e11.a.lesson)
+        arr_test_solo2.push(e11.b.lesson)
+        
+        if((arr_test_solo1.includes(arr_test_solo2[0]))&&(arr_test_solo1.includes(arr_test_solo2[1]))){
+            // console.log(arr_test_solo1,arr_test_solo2) 
+            let one = arr_test_solo1.indexOf(arr_test_solo2[0])
+            let two = arr_test_solo1.indexOf(arr_test_solo2[1])
+            onneeee1=arrMASS[i1].lessons[one]
+            onneeee2=arrMASS[i1].lessons[two]
+            Object.assign(OBJ_test_solo, {onneeee1, onneeee2})
+            // if((arrMASS[i1].lessons[one].presenceMark == "PRESENCE")&&(arrMASS[i1].lessons[two].presenceMark == "PRESENCE")){
+                
+                //     console.log(arrMASS[i1].lessons[one], arrMASS[i1].lessons[two], arrMASS[i1].fio) 
+                //     i++
+                //     // arrMASS[i1].lessons[one].id=i
+                // }
+            }
+            
+        })
+        console.log("+")
+})
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+arr_FINAAAAAAAAAAL = []
+
+
 
 
 
@@ -363,7 +444,7 @@ arrMASS = arrMASS.filter(Boolean)
 arrMASS.forEach(e1=>{swicher=0
     e1.lessons.forEach(e=>{
 
-    for (let i1 = 0; i1 < test_obj.length; i1++) 
+    for (let i1 = test_obj.length-100; i1 < test_obj.length; i1++) 
     
     if(swicher<1){
         if((e.id==test_obj[i1].a.g.id)||(e.id==test_obj[i1].b.g.id)){
@@ -380,7 +461,7 @@ arrMASS.forEach(e1=>{swicher=0
     if (e.id==not_finded_tesOBJ)
     {
         console.log("e.id sec^:", e.id, e1.fio)
-   
+        arr_FINAAAAAAAAAAL.push(e.id)
     }
 
                                                                     }
