@@ -208,56 +208,57 @@ function func4 (){commits.forEach((e)=>{
         LESSONS.push(e)   
     })
 })}
-
-func4()
+////////////////////////////////////////2.12.1 2.12.1 2.1 2.1  2.1  2.1  2.1 перенес позже
+func4()                  
 
 
 test_obj = []
 
-for(i=0; i<total_length;i++){
+for(i=0; i<=LESSONS.length;i++){
 // let e1 =LESSONS[i]
-    console.log('start', LESSONS[i])
-    for(i2=0; i2<total_length;i2++){
-// let e2 =LESSONS[i2]
-        if((LESSONS[i]!=LESSONS[i2])&&(LESSONS[i].lessonDate==LESSONS[i2].lessonDate)){
-            console.log("try", LESSONS[i2])
-            let x11,x12,x21,x22 ="x"
-    x11 = parseInt((LESSONS[i].timeFrom.split(":").join("")))
-    x12 = parseInt((LESSONS[i].timeTo.split(":").join("")))
-    x21 = parseInt((LESSONS[i2].timeFrom.split(":").join("")))
-    x22 = parseInt((LESSONS[i2].timeTo.split(":").join("")))
-    console.log(` ${x11}   ${x12} ${x21} ${x22}
-   ${LESSONS[i].timeFrom } \  ${LESSONS[i].timeTo}  \ ${LESSONS[i2].timeFrom}  \ ${LESSONS[i2].timeTo}`)
-            if(((x11<x21)&&(x21<x12))
-            ||((x21<x12)&&(x12<x22))||(x11==x21)||(x12==x22)){
-                // test_obj[i] = {}
+    // console.log('start', LESSONS[i])
+    // console.log(LESSONS[i2], LESSONS[i])
+for(i2=0; i2<LESSONS.length;i2++){
+console.log(LESSONS[i2], LESSONS[i], i,i2)
+    if((LESSONS[i]!=LESSONS[i2])&&(LESSONS[i].lessonDate==LESSONS[i2].lessonDate)){
+        console.log("try", LESSONS[i2])
+        let x11,x12,x21,x22 ="x"
+x11 = parseInt((LESSONS[i].timeFrom.split(":").join("")))
+x12 = parseInt((LESSONS[i].timeTo.split(":").join("")))
+x21 = parseInt((LESSONS[i2].timeFrom.split(":").join("")))
+x22 = parseInt((LESSONS[i2].timeTo.split(":").join("")))
+console.log(` ${x11}   ${x12} ${x21} ${x22}
+${LESSONS[i].timeFrom } \  ${LESSONS[i].timeTo}  \ ${LESSONS[i2].timeFrom}  \ ${LESSONS[i2].timeTo}`)
+        if(((x11<x21)&&(x21<x12))
+        ||((x21<x12)&&(x12<x22))||(x11==x21)||(x12==x22)){
+            // test_obj[i] = {}
 
 test_obj[i] =  {
-                        a:{ lesson: LESSONS[i].id,g: LESSONS[i]},
-                        b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]} 
-                    }
-    //             Object.defineProperty(test_obj, i, {
-    //                 value: {
-    //                     a:{ lesson: LESSONS[i].id,g: LESSONS[i]},
-    //                     b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]}
-    //                 },
-    //                 writable: true,
-    //                 enumerable: true,    // логическое значение (по умолчанию false)
-    // configurable: true,   // логическое значение (по умолчанию false)
+                    a:{ lesson: LESSONS[i].id,g: LESSONS[i]},
+                    b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]} 
+                }
+//             Object.defineProperty(test_obj, i, {
+//                 value: {
+//                     a:{ lesson: LESSONS[i].id,g: LESSONS[i]},
+//                     b:{ lesson: LESSONS[i2].id,g: LESSONS[i2]}
+//                 },
+//                 writable: true,
+//                 enumerable: true,    // логическое значение (по умолчанию false)
+// configurable: true,   // логическое значение (по умолчанию false)
 
-    //               });
-                console.log("end", LESSONS[i2], "+++++++++++++++++++++++++")
-               
-            }
+//               });
+            console.log("end", LESSONS[i2], "+++++++++++++++++++++++++")
             
         }
-  
+        
+    }
+
 
     }
 
 }
-
-for (let index = 0; index < total_length; index++){console.log(test_obj[index])}
+//////////////////////////////////////////////////////////////
+for (let index = 0; index < LESSONS.length; index++){console.log(test_obj[index])}
 
 test_obj.filter(Boolean).forEach((e,i)=>{test_obj.filter(Boolean).forEach((e2,i2)=>
     {if((e.a.lesson==e2.b.lesson)&&(e.b.lesson==e2.a.lesson))
@@ -363,8 +364,8 @@ arr_test_solo2=[]
 let onneeee1 ={}
 let onneeee2 ={}
 
-let i=0
 ////////////////////////////////////////////
+let i=0
 arrMASS.forEach((e1,i1)=>{
 //каждый человек
 // if (i<100){dkdlm()}
@@ -390,7 +391,8 @@ test_obj.forEach((e11,i11)=>{
             let two = arr_test_solo1.indexOf(arr_test_solo2[1])
             onneeee1=arrMASS[i1].lessons[one]
             onneeee2=arrMASS[i1].lessons[two]
-            Object.assign(OBJ_test_solo, {onneeee1, onneeee2})
+            OBJ_test_solo[i11]=([onneeee1, onneeee2])
+            // Object.assign(OBJ_test_solo[e11], {onneeee1, onneeee2})
             // if((arrMASS[i1].lessons[one].presenceMark == "PRESENCE")&&(arrMASS[i1].lessons[two].presenceMark == "PRESENCE")){
                 
                 //     console.log(arrMASS[i1].lessons[one], arrMASS[i1].lessons[two], arrMASS[i1].fio) 

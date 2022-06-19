@@ -1,0 +1,8 @@
+34676446  G-02035022
+34275000 G-02035471
+test_obj.forEach((e,i)=>{if ((e.b.lesson== 34609317)&&(e.b.lesson ==36285833)){console.log(e)}
+console.log("+")
+})
+
+G-02035022
+G-02035471
