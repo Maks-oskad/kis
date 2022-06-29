@@ -10,8 +10,7 @@
 //        }
     
 // }
-
-
+document.querySelector("#container > div > main > div > div > section > div > div > div.styled__StyledCardContent-sc-1ydsk2u-4.kMuiUc > div > div > div > div.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content > div.ant-tabs-tabpane.ant-tabs-tabpane-active > div.styled__StyledGroupParticipants-sc-1bwumlj-0.eNwmlE > div.ant-table-wrapper.sc-hEsumM.main-participants-list.sc-bYSBpT.dhOsZB > div > div > div > div > div > table > thead > tr > th.ant-table-selection-column > div > div > label > span > input").click()
 
 // https://smd.mos.ru/participants/805596/view
 
@@ -25,6 +24,7 @@ arrCandidate = ['721247']
 
 
 let groupNAME = document.querySelector("#container > div > main > div > div > section > div.styled__StyledCardPageContent-sc-1ydsk2u-2.gfqwRV > div > div.sections__ContentSection-rzp5px-0.sc-hIVACf.fRrLZ > div.styled__StyledProfileInfo-sc-1pym2sp-0.ieNzNG > div > div > div > div:nth-child(1) > div").innerText.split("G-")[1]
+
 groups_All = []
 groups_ACTIVE = []
 var active_groups_i = 0
@@ -105,7 +105,6 @@ async function func1(idLesson_arr, ij){
         console.log("yes")
         needed_dateS_OBJ = E
         needed_dateS_OBJ_arr[ij] = document.querySelectorAll(`[data-row-key="${intId}"]`)
-        return needed_dateS_OBJ_arr[ij]
         console.log(document.querySelectorAll(`[data-row-key="${intId}"]`))
         needed_dateS_OBJ_arr[ij][0].children[1].innerHTML+=`
     <br><a href="dog.html">${needed_dateS_OBJ.code}</a>
@@ -113,11 +112,13 @@ async function func1(idLesson_arr, ij){
     <br>${needed_dateS_OBJ.organization.shortTitle}
     
     `
-    console.log(groupNAME ,needed_dateS_OBJ.code.split("G-")[1])
+    if(groupNAME == document.querySelectorAll(`[data-row-key="${intId}"]`)[0].children[1].children[3].innerText.split("G-")[1])
+{document.querySelectorAll(`[data-row-key="${intId}"]`)[0].style.background = "#ffc000"
+document.querySelectorAll(`[data-row-key="${intId}"]`)[0].children[0].children[0].children[0].click()}
+    // document.querySelectorAll(`[data-row-key="${intId}"]`)
+
+
         // return needed_dateS_OBJ
-        if(groupNAME == document.querySelectorAll(`[data-row-key="${intId}"]`)[0].children[1].children[3].innerText.split("G-")[1]){
-            needed_dateS_OBJ_arr[ij][0].style.background = "#ffc000"
-        }
     }
     // commits[i] = await response.json() // читаем ответ в формате JSON
 })
