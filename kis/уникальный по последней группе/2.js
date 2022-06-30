@@ -15,7 +15,7 @@ document.querySelector("#container > div > main > div > div > section > div > di
 // https://smd.mos.ru/participants/805596/view
 
 // https://smd.mos.ru/api/v1/participants/groups/805596
-
+//https://smd.mos.ru/api/v1/groups/2042934/attendance?from=01.06.2022&to=30.06.2022 это надо превратить
 
 
 arrCandidate = ['721247']
