@@ -15,7 +15,32 @@ document.querySelector("#container > div > main > div > div > section > div > di
 // https://smd.mos.ru/participants/805596/view
 
 // https://smd.mos.ru/api/v1/participants/groups/805596
-//https://smd.mos.ru/api/v1/groups/2042934/attendance?from=01.06.2022&to=30.06.2022 это надо превратить
+//https://smd.mos.ru/api/v1/groups/window.location.href.split("/")[4]/attendance?from=01.06.2022&to=30.06.2022 это надо превратить
+let poshesheniya_All = []
+async function funcPoshesheniya(){
+let url = `https://smd.mos.ru/api/v1/groups/${window.location.href.split("/")[4]}/attendance?from=01.06.2022&to=30.06.2022`;
+response= await fetch(url);
+  poshesheniya_All = await response.json()
+console.log("done")
+poshesheniya_All.participants.forEach((e,i)=>{
+  let lesson = 1
+  for(let i=0; i<e.lessons.length; i++)
+ { document.querySelectorAll(`[data-row-key="${e.id}"]`)[0].appendChild(document.createElement('a') ).innerText = `
+ ${e.lessons[i].lessonDate}`
+
+console.log("+")
+  }
+})
+
+// poshesheniya_All.forEach.
+// document.querySelectorAll(`[data-row-key="${intId}"]`)[0]
+}
+
+
+
+
+
+
 
 
 arrCandidate = ['721247']
@@ -71,8 +96,8 @@ async function func1(idLesson_arr, ij){
     
     groups_All = await response.json()
     groups_ACTIVE = await response2.json()
-      
-
+   
+    funcPoshesheniya()
 
     for (let i = 0; i < groups_All.length; i++) {
         if (groups_ACTIVE.includes(groups_All[i].id)) {//можно убрать эту ячейку, потом фильтр на (boolean)
