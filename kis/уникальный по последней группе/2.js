@@ -27,7 +27,7 @@ poshesheniya_All.participants.forEach((e,i)=>{
   for(let i=0; i<e.lessons.length; i++)
  { document.querySelectorAll(`[data-row-key="${e.id}"]`)[0].appendChild(document.createElement('a') ).innerText = `
  ${e.lessons[i].lessonDate}`
-
+ 
 console.log("+")
   }
 })
@@ -46,7 +46,7 @@ console.log("+")
 arrCandidate = ['721247']
 // commits = [[],[]]
 // commits[1] = []
-
+ 
 
 let groupNAME = document.querySelector("#container > div > main > div > div > section > div.styled__StyledCardPageContent-sc-1ydsk2u-2.gfqwRV > div > div.sections__ContentSection-rzp5px-0.sc-hIVACf.fRrLZ > div.styled__StyledProfileInfo-sc-1pym2sp-0.ieNzNG > div > div > div > div:nth-child(1) > div").innerText.split("G-")[1]
 
