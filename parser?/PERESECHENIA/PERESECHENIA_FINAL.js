@@ -150,6 +150,7 @@ function pereborMassiva(idLesson_arr){
             // commits[i] = await response.json() // читаем ответ в формате JSON
         }
         
+        
         pereborMassiva(idLesson_arr)
         
         
