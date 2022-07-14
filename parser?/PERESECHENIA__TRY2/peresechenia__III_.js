@@ -64,8 +64,8 @@ async function BOOK12(e,i){
         });
 
         
-/////////////////
-
+/////////////////3
+console.table(DB)
 
 
 });
